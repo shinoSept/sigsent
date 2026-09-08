@@ -39,3 +39,6 @@ yarn-error.*
 # generated native folders
 /ios
 /android
+
+# ผลลัพธ์จากการทดสอบ bundle
+.expo-export-check/

@@ -3,23 +3,58 @@
     "name": "SigSent",
     "slug": "SigSent",
     "version": "1.0.0",
+    "scheme": "sigsent",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
     "userInterfaceStyle": "light",
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "bundleIdentifier": "com.sigsent.app",
+      "infoPlist": {
+        "NSCameraUsageDescription": "SigSent ใช้กล้องเพื่อถ่ายรูปหน้าหนังสือนิทาน แล้วแปลงเป็นเสียงอ่านให้เด็กฟัง",
+        "NSMicrophoneUsageDescription": "SigSent ใช้ไมโครโฟนเพื่อให้เด็กพูดถามเกี่ยวกับนิทานได้",
+        "NSPhotoLibraryUsageDescription": "SigSent ขอเข้าถึงรูปภาพเพื่อเลือกรูปหน้าหนังสือนิทานที่ถ่ายไว้แล้ว"
+      }
     },
     "android": {
+      "package": "com.sigsent.app",
       "adaptiveIcon": {
-        "backgroundColor": "#E6F4FE",
+        "backgroundColor": "#3B2A20",
         "foregroundImage": "./assets/android-icon-foreground.png",
         "backgroundImage": "./assets/android-icon-background.png",
         "monochromeImage": "./assets/android-icon-monochrome.png"
       },
-      "predictiveBackGestureEnabled": false
+      "predictiveBackGestureEnabled": false,
+      "permissions": [
+        "CAMERA",
+        "RECORD_AUDIO"
+      ]
     },
     "web": {
+      "bundler": "metro",
       "favicon": "./assets/favicon.png"
+    },
+    "plugins": [
+      "expo-router",
+      "expo-status-bar",
+      "expo-font",
+      "expo-image",
+      [
+        "expo-camera",
+        {
+          "cameraPermission": "SigSent ใช้กล้องเพื่อถ่ายรูปหน้าหนังสือนิทาน แล้วแปลงเป็นเสียงอ่านให้เด็กฟัง"
+        }
+      ],
+      [
+        "expo-audio",
+        {
+          "microphonePermission": "SigSent ใช้ไมโครโฟนเพื่อให้เด็กพูดถามเกี่ยวกับนิทานได้"
+        }
+      ],
+      "expo-asset"
+    ],
+    "experiments": {
+      "typedRoutes": true
     }
   }
 }
